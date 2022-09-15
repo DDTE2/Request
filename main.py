@@ -15,3 +15,9 @@ else:
     from Start.main import autorization
     start = autorization(path)
     start.run()
+
+    database = start.database
+
+    from Do_list.main import Do
+    D = Do(path)
+    D.run()

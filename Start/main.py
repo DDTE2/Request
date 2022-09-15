@@ -4,7 +4,6 @@ from tkinter import ttk
 import sys
 from json import dumps, loads
 
-from SQL_data_input.MySQL import create_connection
 
 class autorization:
     def __init__(self, project_path):
@@ -18,22 +17,29 @@ class autorization:
         self.window.iconbitmap(self.project_path + '/icons/lock.ico')
 
         self.window.title("Подключение к базе данных")
-        self.window.geometry("380x320")
+        self.window.geometry("350x150")
         self.window.resizable(width=False, height=False)
 
         ## Прекращение работы программы при закрытии окна
         self.window.protocol("WM_DELETE_WINDOW", lambda: sys.exit())
     def databases_input(self):
         with open(self.project_path + '/Data/database.data', 'r') as file:
-            databases_import = lambda x: loads(x)['db_name']
-            *database_data, = map(databases_import, file.read().split('\n'))
+            database_data = []
+            self.databases = {}
+            for i in file.read().split('\n'):
+                databes = loads(i)
+                x = databes['db_name']
 
-        self.db_type = ttk.Combobox(self.window, state="readonly", values=database_data)
+                database_data.append(x)
+                self.databases[x] = databes
 
-        self.db_type.grid(column=0, row=1)
-        self.db_type.place(x=170, y=20)
 
-        self.db_type.current(0)
+        self.database = ttk.Combobox(self.window, state="readonly", values=database_data)
+
+        self.database.grid(column=0, row=1)
+        self.database.place(x=170, y=20)
+
+        self.database.current(0)
 
         database_choise = Label(self.window, text='Выберите базу данных')
         database_choise.place(x=30, y=20)
@@ -70,6 +76,8 @@ class autorization:
     def connect(self):
         self.window.withdraw()
         self.window.quit()
+
+        self.database = self.databases[self.database.get()]
 
     ## Запуск окна
     def run(self):
