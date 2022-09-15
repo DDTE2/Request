@@ -1,0 +1,3 @@
+{"db_type": "MySQL", "host": "127.0.0.1", "port": 3306, "user_name": "root", "password": "root", "db_name": "practika"}
+{"db_type": "MySQL", "host": "127.0.0.1", "port": 3306, "user_name": "root", "password": "root", "db_name": "big_data"}
+{"db_type": "MySQL", "host": "127.0.0.1", "port": 3306, "user_name": "root", "password": "root", "db_name": "pharmacy"}
