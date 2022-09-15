@@ -1,0 +1,14 @@
+CREATE TABLE `goods` (
+	`IdTovar` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'Код товара',
+	`Artikul` VARCHAR(255) NULL DEFAULT NULL COMMENT 'Артикул товар' COLLATE 'utf8mb4_unicode_ci',
+	`Name` VARCHAR(255) NULL DEFAULT NULL COMMENT 'Название товара' COLLATE 'utf8mb4_unicode_ci',
+	`Edizm` VARCHAR(10) NULL DEFAULT 'Рубли' COMMENT 'Единица измерения' COLLATE 'utf8mb4_unicode_ci',
+	`Zena` FLOAT NULL DEFAULT NULL COMMENT 'Цена за единицу измерения',
+	PRIMARY KEY (`IdTovar`) USING BTREE
+)
+COMMENT='Товары'
+COLLATE='utf8mb4_unicode_ci'
+ENGINE=InnoDB
+;
+
+
