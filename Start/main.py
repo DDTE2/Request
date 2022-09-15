@@ -36,7 +36,32 @@ class autorization:
 
         self.db_type.current(0)
 
+        database_choise = Label(self.window, text='Выберите базу данных')
+        database_choise.place(x=30, y=20)
+
+    def connect_button(self):
+        conn = Button(self.window,
+                      text="Подключится к базе данных",
+                      activebackground="pink",
+                      activeforeground="blue")
+        conn.grid(column=1, row=0)
+        conn.place(x=100, y=50)
+
+        _or = Label(self.window, text='или')
+        _or.place(x=170, y=80)
+
+    def new_connetc_button(self):
+        conn = Button(self.window,
+                      text="Подключится к другой базе данных",
+                      activebackground="pink",
+                      activeforeground="blue")
+        conn.grid(column=1, row=0)
+        conn.place(x=80, y=100)
+
     ## Запуск окна
     def run(self):
         self.databases_input()
+        self.connect_button()
+        self.new_connetc_button()
+
         self.window.mainloop()
