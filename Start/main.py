@@ -27,7 +27,6 @@ class autorization:
         with open(self.project_path + '/Data/database.data', 'r') as file:
             databases_import = lambda x: loads(x)['db_name']
             *database_data, = map(databases_import, file.read().split('\n'))
-            print(database_data)
 
         self.db_type = ttk.Combobox(self.window, state="readonly", values=database_data)
 
@@ -43,7 +42,8 @@ class autorization:
         conn = Button(self.window,
                       text="Подключится к базе данных",
                       activebackground="pink",
-                      activeforeground="blue")
+                      activeforeground="blue",
+                      command=self.connect)
         conn.grid(column=1, row=0)
         conn.place(x=100, y=50)
 
@@ -54,9 +54,22 @@ class autorization:
         conn = Button(self.window,
                       text="Подключится к другой базе данных",
                       activebackground="pink",
-                      activeforeground="blue")
+                      activeforeground="blue",
+                      command=self.new_connect)
         conn.grid(column=1, row=0)
         conn.place(x=80, y=100)
+
+    def new_connect(self):
+        from SQL_data_input.main import SQL_data
+        self.window.withdraw()
+        self.window.quit()
+
+        rez = SQL_data(self.project_path)
+        rez.run()
+
+    def connect(self):
+        self.window.withdraw()
+        self.window.quit()
 
     ## Запуск окна
     def run(self):
