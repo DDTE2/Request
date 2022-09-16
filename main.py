@@ -19,5 +19,5 @@ else:
     database = start.database
 
     from Do_list.main import Do
-    D = Do(path)
+    D = Do(path, database)
     D.run()

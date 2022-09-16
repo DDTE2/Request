@@ -5,8 +5,9 @@ import sys
 
 
 class Do:
-    def __init__(self, project_path):
+    def __init__(self, project_path, database):
         self.project_path = project_path
+        self.database = database
 
         ## Настройка окна
         self.window = Tk()
@@ -21,7 +22,18 @@ class Do:
 
         ## Прекращение работы программы при закрытии окна
         self.window.protocol("WM_DELETE_WINDOW", lambda: sys.exit())
+    def make_button(self):
+        button = Button(self.window,
+                      text="Создать таблицы",
+                      activebackground="pink",
+                      activeforeground="blue",
+                      command=self.make)
+        button.place(x=30, y=20)
+    def make(self):
+        from Do_list.creat_database.creat import table_gen
+        table_gen(self.project_path, self.database)
     ## Запуск окна
     def run(self):
+        self.make_button()
 
         self.window.mainloop()
