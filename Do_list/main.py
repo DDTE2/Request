@@ -31,7 +31,7 @@ class Do:
         button.place(x=30, y=20)
     def make(self):
         from Do_list.creat_database.creat import table_gen
-        table_gen(self.project_path, self.database)
+        table_gen(path=self.project_path, database_data=self.database)
 
     def generate_button(self):
         button = Button(self.window,

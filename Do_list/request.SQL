@@ -20,7 +20,7 @@ CREATE TABLE `suppliers` (
 	`Dom` VARCHAR(20) NULL DEFAULT '' COMMENT 'Дом' COLLATE 'utf8mb4_unicode_ci',
 	`Korpus` VARCHAR(20) NULL DEFAULT '' COMMENT 'Корпус' COLLATE 'utf8mb4_unicode_ci',
 	`Kv` VARCHAR(20) NULL DEFAULT '' COMMENT 'Квартира' COLLATE 'utf8mb4_unicode_ci',
-	`Telef` INT(15) NULL DEFAULT NULL COMMENT 'Телефон',
+	`Telef` VARCHAR(15) NULL DEFAULT NULL COMMENT 'Телефон',
 	PRIMARY KEY (`IdPostav`) USING BTREE
 )
 COMMENT='Поставщики'

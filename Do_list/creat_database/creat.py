@@ -1,5 +1,6 @@
 from mysql.connector import connect
 
+
 def table_gen(database_data, path):
     try:
         with connect(host=database_data['host'],
