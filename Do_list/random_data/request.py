@@ -1,9 +1,10 @@
 from Do_list.random_data.tabels.goods import random_goods as RG
 from Do_list.random_data.tabels.suppliers import random_suppliers as RS
+from Do_list.random_data.tabels.receipts import random_receipts as RR
 from mysql.connector import connect
 
 def table_gen(database_data, path):
-    request = RG() + RS()
+    request = RG() + RS() + RR()
     print(request)
 
     ##try:
