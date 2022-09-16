@@ -19,10 +19,12 @@ def random_prise(_min, _max):
         _max, _min = _min, _max
 
     i = randint(_min, _max)
-    f = randint(0, 100)
 
-    if f:
-        return i + f / 100
+    if randint(0, 1):
+        if i == _max:
+            return _max - 1 + randint(0, 100)/100
+        else:
+            return i + randint(0, 100) / 100
     else:
         return i
 def random_int(_min, _max):

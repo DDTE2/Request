@@ -32,8 +32,22 @@ class Do:
     def make(self):
         from Do_list.creat_database.creat import table_gen
         table_gen(self.project_path, self.database)
+
+    def generate_button(self):
+        button = Button(self.window,
+                        text="Заполнить таблицы случайными значениями",
+                        activebackground="pink",
+                        activeforeground="blue",
+                        command=self.generate)
+        button.place(x=30, y=50)
+    def generate(self):
+        from Do_list.random_data.request import table_gen
+        table_gen(path=self.project_path, database_data=self.database)
+
+
     ## Запуск окна
     def run(self):
         self.make_button()
+        self.generate_button()
 
         self.window.mainloop()
